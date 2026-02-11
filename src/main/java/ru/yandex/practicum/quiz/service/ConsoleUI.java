@@ -24,19 +24,21 @@ public class ConsoleUI {
         this.quizLogger = new QuizLog(questions.size());
         this.quizTitle = title;
     }
+
     public QuizLog startQuiz() {
         System.out.println("\nЗдравствуйте, приступаем к тесту " + quizTitle + "\n");
 
         for (int questionIdx = 0; questionIdx < questions.size(); questionIdx++) {
             Question question = questions.get(questionIdx);
-            processQuestion(questionIdx+1, question);
+            processQuestion(questionIdx + 1, question);
         }
         System.out.println("\n");
         return quizLogger;
     }
+
     private void processQuestion(int questionNumber, Question question) {
 
-        for(int attemptIdx = 0; attemptIdx < question.getAttempts(); attemptIdx++) {
+        for (int attemptIdx = 0; attemptIdx < question.getAttempts(); attemptIdx++) {
             System.out.println("\n");
             askQuestion(questionNumber, question, attemptIdx);
 
@@ -45,7 +47,7 @@ public class ConsoleUI {
             if (question.getCorrectAnswerNumber() == answerNumber) {
                 break;
             } else {
-                if(attemptIdx+1 < question.getAttempts()) {
+                if (attemptIdx + 1 < question.getAttempts()) {
                     System.out.println("К сожалению ваш ответ неверный, но вы можете попробовать еще раз");
                 }
             }
