@@ -31,6 +31,8 @@ public class AppConfig {
         private ReportOutputSettings output;
     }
 
+
+
     @Setter
     @Getter
     @ToString
